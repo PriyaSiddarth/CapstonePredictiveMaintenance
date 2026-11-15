@@ -23,28 +23,15 @@ import mlflow
 # ---------------------------------------------------------------------
 # The preparation run ID is created in cell 45. For a separate training
 # session or GitHub workflow, supply it via PREPARATION_RUN_ID.
-preparation_run_id = globals().get("preparation_run_id")
-if not preparation_run_id:
-    raise ValueError("Set PREPARATION_RUN_ID to the published data-preparation MLflow run ID.")
 
-required_files = ("Xtrain.csv", "Xtest.csv", "ytrain.csv", "ytest.csv")
-artifact_paths = {
-    filename: Path(mlflow.artifacts.download_artifacts(
-        run_id=preparation_run_id,
-        artifact_path=f"prepared_splits/{filename}"
-    ))
-    for filename in required_files
-}
-Xtrain = pd.read_csv(artifact_paths["Xtrain.csv"])
-Xtest = pd.read_csv(artifact_paths["Xtest.csv"])
-ytrain = pd.read_csv(artifact_paths["ytrain.csv"]).iloc[:, 0]
-ytest = pd.read_csv(artifact_paths["ytest.csv"]).iloc[:, 0]
-assert list(Xtrain.columns) == list(Xtest.columns)
-assert len(Xtrain) == len(ytrain) and len(Xtest) == len(ytest)
-assert set(ytrain.unique()).issubset({0, 1})
+mlflow.set_tracking_uri("http://localhost:5000")
+mlflow.set_experiment("mlops-training-experiment")
 
-print("Loaded training/test artifacts from preparation run:", preparation_run_id)
-print("Training rows:", len(Xtrain), "Test rows:", len(Xtest))
+# Xtrain/Xtest/ytrain/ytest are downloaded from the previous job's artifact
+Xtrain = pd.read_csv("Xtrain.csv")
+Xtest  = pd.read_csv("Xtest.csv")
+ytrain = pd.read_csv("ytrain.csv").squeeze()
+ytest  = pd.read_csv("ytest.csv").squeeze()
 
 class_weight = ytrain.value_counts().get(0, 0) / ytrain.value_counts().get(1, 1)
 numeric_features = ["LubOilPressure", "FuelPressure", "CoolantPressure", "LubOilTemp", "CoolantTemp"]
