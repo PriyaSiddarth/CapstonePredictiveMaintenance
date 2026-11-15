@@ -1,0 +1,12 @@
+{
+  "model": "XGBoost",
+  "best_parameters": {
+    "xgbclassifier__reg_lambda": 0.6,
+    "xgbclassifier__n_estimators": 75,
+    "xgbclassifier__max_depth": 2,
+    "xgbclassifier__learning_rate": 0.01,
+    "xgbclassifier__colsample_bytree": 0.4
+  },
+  "best_cv_f1": 0.658841114591649,
+  "preparation_run_id": "d04f152e36ba47a6a6bc85309c5580a0"
+}
