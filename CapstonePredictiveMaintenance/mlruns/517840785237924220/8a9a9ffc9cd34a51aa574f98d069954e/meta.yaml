@@ -1,0 +1,14 @@
+artifact_uri: file:///content/CapstonePredictiveMaintenance/mlruns/517840785237924220/8a9a9ffc9cd34a51aa574f98d069954e/artifacts
+end_time: 1794747989255
+entry_point_name: ''
+experiment_id: '517840785237924220'
+lifecycle_stage: active
+run_id: 8a9a9ffc9cd34a51aa574f98d069954e
+run_name: XGBoost_trial_13
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1794747989223
+status: 3
+tags: []
+user_id: root
