@@ -1,3 +1,5 @@
+import pandas as pd
+
 # Load the raw dataset
 df = pd.read_csv('CapstonePredictiveMaintenance/data/engine_data.csv')
 
