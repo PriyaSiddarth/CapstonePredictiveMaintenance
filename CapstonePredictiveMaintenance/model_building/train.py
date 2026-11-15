@@ -17,6 +17,7 @@ from sklearn.metrics import classification_report
 # for model serialization
 import joblib
 import mlflow
+from pathlib import Path
 
 # ---------------------------------------------------------------------
 # 1. Load published preparation artifacts (NO second train/test split)
@@ -25,16 +26,19 @@ import mlflow
 mlflow.set_tracking_uri("http://localhost:5000")
 mlflow.set_experiment("mlops-training-experiment")
 
+# Resolve project directory relative to train.py
+project_dir = Path(__file__).resolve().parents[1]
+data_dir = project_dir / "data" / "processed"
+
 # Xtrain/Xtest/ytrain/ytest are downloaded from the previous job's artifact
-Xtrain = pd.read_csv("Xtrain.csv")
-Xtest  = pd.read_csv("Xtest.csv")
-ytrain = pd.read_csv("ytrain.csv").squeeze()
-ytest  = pd.read_csv("ytest.csv").squeeze()
+Xtrain = pd.read_csv(data_dir / "Xtrain.csv")
+Xtest  = pd.read_csv(data_dir / "Xtest.csv")
+ytrain = pd.read_csv(data_dir / "ytrain.csv").squeeze()
+ytest  = pd.read_csv(data_dir / "ytest.csv").squeeze()
 
 preparation_run_id = (project_dir/ "data" / "processed" / "preparation_run_id.txt")
 if not preparation_run_id:
     raise ValueError("Set PREPARATION_RUN_ID to the published data-preparation MLflow run ID.")
-
 
 class_weight = ytrain.value_counts().get(0, 0) / ytrain.value_counts().get(1, 1)
 numeric_features = ["LubOilPressure", "FuelPressure", "CoolantPressure", "LubOilTemp", "CoolantTemp"]
