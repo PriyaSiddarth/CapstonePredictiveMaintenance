@@ -1,0 +1,10 @@
+artifact_location: file:///content/CapstonePredictiveMaintenance/mlruns/517840785237924220/models/m-953417afc8b44a77951d0605e4cd073a/artifacts
+creation_timestamp: 1794747790887
+experiment_id: '517840785237924220'
+last_updated_timestamp: 1794747794607
+model_id: m-953417afc8b44a77951d0605e4cd073a
+model_type: null
+name: model
+source_run_id: 0de72a1c09af451bbe7fe394826d85eb
+status: 2
+status_message: null
