@@ -18,6 +18,15 @@ from sklearn.metrics import classification_report
 import joblib
 import mlflow
 from pathlib import Path
+# to compute classification metrics
+import sklearn.metrics as metrics
+from sklearn.metrics import (
+    confusion_matrix,
+    accuracy_score,
+    recall_score,
+    precision_score,
+    f1_score,
+)
 
 # ---------------------------------------------------------------------
 # 1. Load published preparation artifacts (NO second train/test split)
