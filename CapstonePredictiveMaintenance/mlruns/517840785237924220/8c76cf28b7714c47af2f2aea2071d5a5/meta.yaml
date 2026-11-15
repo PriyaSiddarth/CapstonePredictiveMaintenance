@@ -1,0 +1,14 @@
+artifact_uri: file:///content/CapstonePredictiveMaintenance/mlruns/517840785237924220/8c76cf28b7714c47af2f2aea2071d5a5/artifacts
+end_time: 1794747972958
+entry_point_name: ''
+experiment_id: '517840785237924220'
+lifecycle_stage: active
+run_id: 8c76cf28b7714c47af2f2aea2071d5a5
+run_name: Gradient Boosting_trial_13
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1794747972934
+status: 3
+tags: []
+user_id: root
