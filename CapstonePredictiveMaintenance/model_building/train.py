@@ -21,8 +21,6 @@ import mlflow
 # ---------------------------------------------------------------------
 # 1. Load published preparation artifacts (NO second train/test split)
 # ---------------------------------------------------------------------
-# The preparation run ID is created in cell 45. For a separate training
-# session or GitHub workflow, supply it via PREPARATION_RUN_ID.
 
 mlflow.set_tracking_uri("http://localhost:5000")
 mlflow.set_experiment("mlops-training-experiment")
@@ -32,6 +30,11 @@ Xtrain = pd.read_csv("Xtrain.csv")
 Xtest  = pd.read_csv("Xtest.csv")
 ytrain = pd.read_csv("ytrain.csv").squeeze()
 ytest  = pd.read_csv("ytest.csv").squeeze()
+
+preparation_run_id = (project_dir/ "data" / "processed" / "preparation_run_id.txt")
+if not preparation_run_id:
+    raise ValueError("Set PREPARATION_RUN_ID to the published data-preparation MLflow run ID.")
+
 
 class_weight = ytrain.value_counts().get(0, 0) / ytrain.value_counts().get(1, 1)
 numeric_features = ["LubOilPressure", "FuelPressure", "CoolantPressure", "LubOilTemp", "CoolantTemp"]
