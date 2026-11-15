@@ -1,0 +1,14 @@
+artifact_uri: file:///content/CapstonePredictiveMaintenance/mlruns/517840785237924220/97805ce56ee948df879519e6af845a67/artifacts
+end_time: 1794747350266
+entry_point_name: ''
+experiment_id: '517840785237924220'
+lifecycle_stage: active
+run_id: 97805ce56ee948df879519e6af845a67
+run_name: Bagging_trial_14
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1794747350248
+status: 3
+tags: []
+user_id: root
