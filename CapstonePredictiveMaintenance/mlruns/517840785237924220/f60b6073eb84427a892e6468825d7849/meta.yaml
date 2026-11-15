@@ -1,0 +1,14 @@
+artifact_uri: file:///content/CapstonePredictiveMaintenance/mlruns/517840785237924220/f60b6073eb84427a892e6468825d7849/artifacts
+end_time: 1794746412516
+entry_point_name: ''
+experiment_id: '517840785237924220'
+lifecycle_stage: active
+run_id: f60b6073eb84427a892e6468825d7849
+run_name: Decision Tree_trial_07
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1794746412499
+status: 3
+tags: []
+user_id: root
