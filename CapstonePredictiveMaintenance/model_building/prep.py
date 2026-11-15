@@ -1,3 +1,4 @@
+import pandas as pd
 from pathlib import Path
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -15,7 +16,7 @@ X = df.drop(columns=['EngineCondition'])
 Xtrain, Xtest, ytrain, ytest = train_test_split(
     X, y, test_size=0.2, random_state=42, stratify=y
 )
-output_dir = project_dir / "data" / "processed"
+output_dir = project_dir / 'data' / 'processed'
 output_dir.mkdir(parents=True, exist_ok=True)
 for name, split in [('Xtrain', Xtrain), ('Xtest', Xtest),
                     ('ytrain', ytrain), ('ytest', ytest)]:
