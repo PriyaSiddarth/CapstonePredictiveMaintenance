@@ -49,6 +49,7 @@ jobs:
              CapstonePredictiveMaintenance/data/processed/Xtest.csv
              CapstonePredictiveMaintenance/data/processed/ytrain.csv
              CapstonePredictiveMaintenance/data/processed/ytest.csv
+             CapstonePredictiveMaintenance/data/processed/preparation_run_id.txt
 
   model-traning:
     needs: data-prep
@@ -64,6 +65,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: data-splits
+          path: CapstonePredictiveMaintenance/data/processed/
 
       - name: Start MLflow Server
         run: |
