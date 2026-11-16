@@ -14,11 +14,11 @@ This application predicts the likelihood of vehicle engine maintenance required 
 st.write("Please enter the vehicle engine details below.")
 
 EngineRPM = st.number_input("Engine RPM", min_value=40, max_value=3000, value=100)
-LubOilPressure = st.number_input("Lubricating Oil Pressure", min_value=0, max_value=10, value=3,format="%.6f")
-FuelPressure = st.number_input("Fuel Pressure", min_value=0, max_value=30, value=10,format="%.6f")
-CoolantPressure = st.number_input("Coolant Pressure", min_value=0, max_value=10, value=3,format="%.6f")
-LubOilTemp = st.number_input("Lubricating Oil Temperature", min_value=50, max_value=100, value=70,format="%.5f")
-CoolantTemp = st.number_input("Coolant Temperature", min_value=50, max_value=250, value=100,format="%.5f")
+LubOilPressure = st.number_input("Lubricating Oil Pressure", min_value=0.0, max_value=10.0, value=3.0,step=0.000001,,format="%.6f")
+FuelPressure = st.number_input("Fuel Pressure", min_value=0, max_value=30, value=10,step=0.000001,,format="%.6f")
+CoolantPressure = st.number_input("Coolant Pressure", min_value=0, max_value=10, value=3,step=0.000001,format="%.6f")
+LubOilTemp = st.number_input("Lubricating Oil Temperature", min_value=50, max_value=100, value=70,step=0.00001,, format="%.5f")
+CoolantTemp = st.number_input("Coolant Temperature", min_value=50, max_value=250, value=100, step=0.000001, format="%.5f")
 
 input_data = pd.DataFrame([{
     "EngineRpm": EngineRPM,
