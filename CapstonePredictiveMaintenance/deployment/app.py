@@ -76,7 +76,13 @@ input_data = pd.DataFrame([{
 }])
 
 if st.button("Predict Engine Condition"):
-    prediction = model.predict(input_data)[0]
+    failure_probability = model.predict(input_data)[0]
+    classification_threshold = 0.45
+    prediction = int(
+        failure_probability >= classification_threshold
+    )
+    st.write(f"Raw prediction: {prediction}")
+    st.write(f"Failure probability: {failure_probability:.2%}")
     if prediction == 1:
       result = "Vehicle's Engine is likely to be faulty"
     else:
