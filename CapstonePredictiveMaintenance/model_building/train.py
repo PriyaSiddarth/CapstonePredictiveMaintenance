@@ -50,7 +50,7 @@ if not preparation_run_id:
     raise ValueError("Set PREPARATION_RUN_ID to the published data-preparation MLflow run ID.")
 
 class_weight = ytrain.value_counts().get(0, 0) / ytrain.value_counts().get(1, 1)
-numeric_features = ["LubOilPressure", "FuelPressure", "CoolantPressure", "LubOilTemp", "CoolantTemp"]
+numeric_features = ["EngineRPM","LubOilPressure", "FuelPressure", "CoolantPressure", "LubOilTemp", "CoolantTemp"]
 preprocessor = make_column_transformer((StandardScaler(), numeric_features))
 
 # ---------------------------------------------------------------------
