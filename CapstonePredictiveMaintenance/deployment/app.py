@@ -21,50 +21,51 @@ EngineRPM = st.number_input(
     step=1
 )
 
-LubOilPressure = st.number_input(
+
+LubOilPressure = round(st.number_input(
     "Lubricating Oil Pressure",
     min_value=0.0,
     max_value=10.0,
     value=3.0,
-    step=0.000001,
-    format="%.6f"
-)
+    step=0.01,
+    format="%.2f"
+), 2)
 
-FuelPressure = st.number_input(
+FuelPressure = round(st.number_input(
     "Fuel Pressure",
     min_value=0.0,
     max_value=30.0,
     value=10.0,
-    step=0.000001,
-    format="%.6f"
-)
+    step=0.01,
+    format="%.2f"
+), 2)
 
-CoolantPressure = st.number_input(
+CoolantPressure = round(st.number_input(
     "Coolant Pressure",
     min_value=0.0,
     max_value=10.0,
     value=3.0,
-    step=0.000001,
-    format="%.6f"
-)
+    step=0.01,
+    format="%.2f"
+), 2)
 
-LubOilTemp = st.number_input(
+LubOilTemp = round(st.number_input(
     "Lubricating Oil Temperature",
     min_value=50.0,
     max_value=100.0,
     value=70.0,
-    step=0.00001,
-    format="%.5f"
-)
+    step=0.01,
+    format="%.2f"
+), 2)
 
-CoolantTemp = st.number_input(
+CoolantTemp = round(st.number_input(
     "Coolant Temperature",
     min_value=50.0,
     max_value=250.0,
     value=100.0,
-    step=0.000001,
-    format="%.6f"
-)
+    step=0.01,
+    format="%.2f"
+), 2)
 
 input_data = pd.DataFrame([{
     "EngineRpm": EngineRPM,
